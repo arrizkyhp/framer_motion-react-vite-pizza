@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { usePizzaContext } from '@/contexts/PizzaContext';
+import containerVariants from '@/motions';
 
 const Toppings = () => {
   const { addTopping, pizza } = usePizzaContext();
@@ -15,7 +16,12 @@ const Toppings = () => {
   ];
 
   return (
-    <div className="toppings container">
+    <motion.div
+      className="toppings container"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
         {toppings.map((topping) => {
@@ -51,7 +57,7 @@ const Toppings = () => {
           Order
         </motion.button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
