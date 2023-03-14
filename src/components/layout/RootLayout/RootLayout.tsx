@@ -2,18 +2,21 @@ import { Outlet } from 'react-router-dom';
 
 import Content from '@/components/layout/Content';
 import Header from '@/components/layout/Header';
-import { LayoutProvider } from '@/contexts/LayoutContext';
-import { PizzaProvider } from '@/contexts/PizzaContext';
+import Modal from '@/components/ui/Modal';
+import { useLayoutContext } from '@/contexts/LayoutContext';
 
-const RootLayout = () => (
-  <LayoutProvider>
-    <PizzaProvider>
+const RootLayout = () => {
+  const { setShowModal, showModal } = useLayoutContext();
+
+  return (
+    <>
       <Header />
+      <Modal showModal={showModal} setShowModal={setShowModal} />
       <Content>
         <Outlet />
       </Content>
-    </PizzaProvider>
-  </LayoutProvider>
-);
+    </>
+  );
+};
 
 export default RootLayout;

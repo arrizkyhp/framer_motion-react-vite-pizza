@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { usePizzaContext } from '@/contexts/PizzaContext';
-import containerVariants from '@/motions';
+import { buttonVariants, containerVariants } from '@/motions';
 
 const nextVariants = {
   hidden: { x: '-100vw' },
@@ -56,11 +56,8 @@ const Base = () => {
             <motion.button
               className="button rounded-full"
               type="button"
-              whileHover={{
-                scale: 1.1,
-                textShadow: '0px 0px 8px rgb(255,255,255)',
-                boxShadow: '0px 0px 8px rgb(255,255,255)',
-              }}
+              variants={buttonVariants}
+              whileHover="hover"
             >
               Next
             </motion.button>

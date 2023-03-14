@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 
 import RootLayout from '@/components/layout/RootLayout';
+import { LayoutProvider } from '@/contexts/LayoutContext';
+import { PizzaProvider } from '@/contexts/PizzaContext';
 import Base from '@/pages/Base';
 import Home from '@/pages/Home/Home';
 import NotFound from '@/pages/NotFound';
@@ -33,7 +35,11 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Suspense fallback={<div>Loading</div>}>
-      <RouterProvider router={router} />
+      <LayoutProvider>
+        <PizzaProvider>
+          <RouterProvider router={router} />
+        </PizzaProvider>
+      </LayoutProvider>
     </Suspense>
   </StrictMode>,
 );

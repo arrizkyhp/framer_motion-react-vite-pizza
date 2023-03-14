@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+import { buttonVariants } from '@/motions';
+
 const Home = () => (
   <motion.div
     className="home container"
@@ -12,11 +14,8 @@ const Home = () => (
     <Link to="/base">
       <motion.button
         className="rounded-full"
-        whileHover={{
-          scale: 1.1,
-          textShadow: '0px 0px 8px rgb(255,255,255)',
-          boxShadow: '0px 0px 8px rgb(255,255,255)',
-        }}
+        variants={buttonVariants}
+        whileHover="hover"
         type="button"
       >
         Create Your Pizza

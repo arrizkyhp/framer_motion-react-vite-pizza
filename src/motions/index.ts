@@ -1,3 +1,4 @@
+import buttonVariants from '@/motions/buttonVariants';
 import containerVariants from '@/motions/containerVariants';
 
-export default containerVariants;
+export { buttonVariants, containerVariants };
